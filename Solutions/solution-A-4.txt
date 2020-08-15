@@ -1,0 +1,23 @@
+1   How is array declaration and initialization handled?
+
+    Just like  a variable's initialization, an array is declared at the starting of 
+    the procedure  body and  the initialization of elements is split into  multiple statements
+     that assign values to  individual array  elements. This  is done in order to remain consistent  
+    with GIMPLE's one operation per statement policy.
+
+
+2   Why does the statement a[i] = b[i] get broken down to two steps with
+    an intermediate temporary?
+
+    As GIMPLE  can perform only  one operation per statement,  it cannot
+    read  and write  to  array  locations at  the  same  time (as  array
+    accesses  involves calculation of memory address). Thus,  these are  split into
+    separate read and write statements by introducing a temporary variable.
+
+
+3   Why are there CLOBBER statements at the end?
+
+    As arrays are traversed by calculation of subsequent memory locations,
+    and accessing the datatype at that locations.
+    Hence in order to mark the end of scope of these arrays, in the program,
+    GIMPLE uses CLOBBER statements.

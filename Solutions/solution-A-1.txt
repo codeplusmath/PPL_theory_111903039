@@ -1,0 +1,42 @@
+1   How  do the  declarations  look in  the  GIMPLE? Specifically,  what
+    happens to multiple  variables declared and initialized  on the same
+    line? What happens to global declaration [int Z]?
+
+    ->Each  declaration is  displayed on  its own  line as  an independent
+    local variable  declaration. Variables Initialized are broken  up into simple
+    declarations at the  top and an assignment statement in  the body of
+    the procedure.  There is no  declaration for global  variables and they
+    are used directly,when needed .
+
+
+
+2   How are complex  expressions such as [c  = a * b +  25] broken down?
+    Can you  determine a  rule as  to when  temporary variables  will be
+    introduced?
+
+    ->The Compiler only executes one operation at a time and stores it's result into
+    a temporary variable and after evaluating the whole expression, it stores the final
+    result in required variable.
+    A rule for introducing temporary variable can be that, when an expression has one or more
+    operand or we have to assign valueto the global variable.
+
+
+3   How are  floats/doubles represented in  GIMPLE? What happens  when a
+    float/double is assigned to an integer in [Z = r]?
+
+    ->Floats/doubles  are  displayed  in   scientific  notation,  and  any
+    implicit assignments to integers are  type casted to integers by GIMPLE.
+
+
+4   How  are reads/writes  to the  global variable  Z performed?  Why is
+    there a temporary introduced  for the statement [Z = Z  + 1] but not
+    for the statements [q = Z] or [Z = p]?
+
+    ->Reading/writing  from/to global  variables  requires  a memory  load
+    or  store operation. Any operation  on global  variables (such  as the  increment
+    shown  in this  example)  has  to go  through  an  indirection of  a
+    temporary version of the global variable .
+    As  GIMPLE  statements can  have  at most  one
+    operation(either assignment or incrementation) , 
+    Hence in the statement [Z = Z  + 1] we need an extra temporary variable,
+    but not in the case of [q = Z]

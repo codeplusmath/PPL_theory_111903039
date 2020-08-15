@@ -1,0 +1,20 @@
+1   What will happen if "a = a + N" is replaced by "a = a + 1"?
+
+     The loop will be unrolled and constant propogation will allow GCC to
+    compute  the final  value of  `a'. Hence  the loop  will be  removed
+    entirely.
+    I tried it out and this is the .cunroll file:
+
+;; Function main (main, funcdef_no=0, decl_uid=1908, cgraph_uid=1, symbol_order=1) (executed once)
+
+main ()
+{
+  int a;
+  int i;
+  
+  <bb 2> [local count: 214748368]:
+  return 14;
+  
+} 
+  
+14 is returned because a=10+1+1+1+1 =>a=14

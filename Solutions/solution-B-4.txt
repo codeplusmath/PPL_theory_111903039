@@ -1,0 +1,35 @@
+1   How many  times is the expression  (a + c) computed  in the original
+    code (as seen in the SSA pass)? What about after the FRE pass?
+
+    The original code(as seen in the SSA pass) showed two computations of the expression(a+c),
+    but the FRE pass was able to  reuse the  temporary variable  which  stored the  result of  the
+    intitial computation  of (a +  c). Thus,  one line of  execution was
+    saved, and the use of an extra variable.
+
+
+2   Have  there been  any more  optimizations  after FRE?  How will  you
+    check?
+
+    As far as I had read, ".optimized" file is the last GIMPLE pass so if the optimized and FRE
+    file have same content then we can assume that there are no further optimizations after FRE
+
+
+3   Why did  we have  to put a  "return b" in  this assignment?  What if
+    "return b" is changed to "return 0"? Will it make any difference?
+
+    "return  b" was  required to  make the  computation of  variable `b'
+    meaningful, as we are not using variable "b" in our program after computing it,
+    If we do not return it and "return 0" instead we observe that our ".optimized"
+    file has its content as:
+    
+    main ()
+    {
+    <bb 2> [local count: 1073741824]:
+    return 0;
+
+    }
+
+    This means that our compiler considers computation of "b" as dead code and 
+    removes it.
+    So it definately makes a difference.
+

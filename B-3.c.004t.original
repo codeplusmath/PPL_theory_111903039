@@ -1,0 +1,46 @@
+
+;; Function __sputc (null)
+;; enabled by -tree-original
+
+
+{
+  if ( --_p->_w >= 0 || _p->_w >= _p->_lbfsize && (signed char) _c != 10)
+    {
+      return (int) (*_p->_p++  = (unsigned char) _c);
+    }
+  else
+    {
+      return __swbuf (_c, _p);
+    }
+}
+
+
+;; Function main (null)
+;; enabled by -tree-original
+
+
+{
+  int a;
+  int b;
+
+    int a;
+    int b;
+  a = 4;
+  goto <D.2364>;
+  <D.2363>:;
+  if (a <= 3)
+    {
+      b = b + 2;
+    }
+  else
+    {
+      b = b * 2;
+    }
+  a++ ;
+  <D.2364>:;
+  if (a <= 99) goto <D.2363>; else goto <D.2365>;
+  <D.2365>:;
+  printf ((const char * restrict) "%d%d", a, b);
+}
+return 0;
+

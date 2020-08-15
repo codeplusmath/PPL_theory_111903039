@@ -1,0 +1,61 @@
+35 ccp "Constants propagated" "main" 2
+35 ccp "Statements deleted" "main" 2
+40 fre "RPO blocks" "main" 7
+40 fre "RPO num values == 8" "main" 1
+40 fre "RPO blocks visited" "main" 11
+40 fre "RPO iterations == 15" "main" 1
+40 fre "RPO max_rpo iterations == 0" "main" 1
+40 fre "RPO blocks executable" "main" 7
+40 fre "RPO block visited times == 1" "main" 3
+40 fre "RPO block visited times == 2" "main" 4
+40 fre "RPO num avail == 6" "main" 1
+40 fre "RPO num lattice == 8" "main" 1
+41 evrp "Incremental SSA update" "main" 1
+52 release_ssa "SSA names released" "main" 3
+52 release_ssa "SSA name holes removed" "main" 3
+98 ccp "Copies propagated" "main" 1
+98 ccp "Statements deleted" "main" 1
+107 fre "RPO blocks" "main" 4
+107 fre "RPO num values == 6" "main" 1
+107 fre "RPO blocks visited" "main" 6
+107 fre "RPO iterations == 15" "main" 1
+107 fre "RPO max_rpo iterations == 0" "main" 1
+107 fre "RPO blocks executable" "main" 4
+107 fre "RPO block visited times == 1" "main" 2
+107 fre "RPO block visited times == 2" "main" 2
+107 fre "RPO num avail == 4" "main" 1
+107 fre "RPO num lattice == 6" "main" 1
+110 vrp "Incremental SSA update" "main" 2
+110 vrp "Jumps threaded" "main" 1
+110 vrp "Number of ASSERT_EXPR expressions inserted" "main" 1
+115 copyprop "Copies propagated" "main" 1
+115 copyprop "Statements deleted" "main" 1
+138 pre "RPO blocks" "main" 4
+138 pre "RPO num values == 6" "main" 1
+138 pre "RPO blocks visited" "main" 6
+138 pre "RPO iterations == 15" "main" 1
+138 pre "Insertions" "main" 1
+138 pre "RPO max_rpo iterations == 0" "main" 1
+138 pre "RPO blocks executable" "main" 4
+138 pre "RPO block visited times == 1" "main" 2
+138 pre "RPO block visited times == 2" "main" 2
+138 pre "RPO num avail == 4" "main" 1
+138 pre "insert iterations == 2" "main" 1
+138 pre "RPO num lattice == 6" "main" 1
+138 pre "compute_antic iterations == 2" "main" 1
+146 loopinit "Incremental SSA update" "main" 1
+185 fre "RPO blocks" "main" 3
+185 fre "RPO iterations == 10" "main" 1
+185 fre "RPO num values == 6" "main" 1
+185 fre "RPO blocks visited" "main" 3
+185 fre "RPO max_rpo iterations == 0" "main" 1
+185 fre "RPO blocks executable" "main" 3
+185 fre "RPO block visited times == 1" "main" 3
+185 fre "RPO num avail == 4" "main" 1
+185 fre "RPO num lattice == 6" "main" 1
+185 fre "Eliminated" "main" 1
+190 vrp "Incremental SSA update" "main" 2
+190 vrp "Number of ASSERT_EXPR expressions inserted" "main" 1
+191 copyprop "Copies propagated" "main" 1
+191 copyprop "Statements deleted" "main" 1
+273 combine "two-insn combine" "main" 1

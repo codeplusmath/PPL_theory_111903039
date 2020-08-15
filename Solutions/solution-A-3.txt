@@ -1,0 +1,23 @@
+1   Identify the basic blocks that correspond  to the while loop. How is
+    the GIMPLE for a while loop different from simple if-else jumps?
+
+    Basic blocks   3 and 4 correspond to the  while-loop.
+    <bb7> corresponds to inner body of the loop.
+    <bb4> corresponds to the conditional goto statement.
+    A while loop is  nothing but  a  set  of basic  blocks  with conditional  control
+    transfer, the only  notable difference between while loop and if-else statement is 
+    being a jump to  a block that has been previously executed (i.e. a backward branch).
+
+
+2   Identify the  basic blocks  for the nested  for-loop. You  should be
+    able  to identify  intializers, conditions  and increments  for each
+    loop as  well as  the shared  inner body.  Is there  really anything
+    special about a for-loop as compared to a while-loop?
+
+    Basic blocks 6, 7 and 8 correspond to the nested for loop.(<bb6>, <bb7>, <bb8>).
+    <bb6> corresponds to initialization. <bb7> corresponds to inner body and increments the loop.
+    <bb8> corresponds to the conditional goto statement.
+    When we compare "for" loop with "while" loop we find that for loop takes an extra basic block
+    for initialization of looping variable, and has increment statement at the end of inner body
+    loop.
+

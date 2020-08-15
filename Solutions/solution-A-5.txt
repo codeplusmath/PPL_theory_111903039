@@ -1,0 +1,60 @@
+1   Do you notice that each usage of local variable as an operand uses a
+    suffix that can be tracked to it's assignment? Why do some variables
+    have a suffix `(D)'?
+    Local variables are  suffixed with a unique  number which represents
+            the assignment. For  example, `d_3' refers to the  usage of variable
+            `d'  and  the number suffixed to it indicates the orderin which the
+            assignment took place.  Variables that are  used  before any
+            assignment are suffixed  with `(D)' to indicate  that the assignment
+            was implicit in the declaration(by the compiler). For example, variable `c' is
+            used as `c_4(D)' in the `if' condition.
+
+
+2   Find the point in the CFG in  which the paths of the two assignments
+    to variable `a'  and `b' merge. You will notice  that PHI statements
+    have  been  introduced.  Can  you   guess  the  syntax  of  the  PHI
+    statements?
+
+    <bb5> is the point in CFG where the paths of the two assignments
+    to variable `a'  and `b' merge. We also notice the use of PHI statements
+    in the SSA, A PHI node merges assignments from different paths and creates a new
+    assignment. For example:
+
+        # a_1 = PHI <a_5(3), a_7(4)> 
+
+    indicates that if  the control reaches here from basic  block 3 then
+    use the  value of a_5;  otherwise if  the control reaches  here from
+    basic block 4 then use the value of a_7.
+
+
+3   Can you think of an example in which a PHI node merges more than two
+    versions of a variable?
+
+    A switch statement can result in a merge of more than two paths (and
+    hence possibly more than two assignments). Consider:
+
+    int main()
+    {
+        int a, k;
+        switch (a)
+        {
+            case 1:
+                k = 2;
+                break;
+            case 2:
+                k = 3;
+                break;
+            case 3:
+                k = 4;
+            case 4:
+                k = 5;
+                break;
+            case 5:
+                k = 6;
+                break;
+            default:
+                k = 7;
+        }
+        return k;
+    }
+    
