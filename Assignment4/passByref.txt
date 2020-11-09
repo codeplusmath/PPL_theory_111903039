@@ -1,0 +1,44 @@
+Dump of assembler code for function main():
+   0x00000000000011ba <+0>:     endbr64
+   0x00000000000011be <+4>:     push   %rbp
+   0x00000000000011bf <+5>:     mov    %rsp,%rbp
+   0x00000000000011c2 <+8>:     sub    $0x10,%rsp
+   0x00000000000011c6 <+12>:    mov    %fs:0x28,%rax
+   0x00000000000011cf <+21>:    mov    %rax,-0x8(%rbp)
+   0x00000000000011d3 <+25>:    xor    %eax,%eax
+   0x00000000000011d5 <+27>:    movl   $0x5,-0x10(%rbp)
+   0x00000000000011dc <+34>:    movl   $0x7,-0xc(%rbp)
+   0x00000000000011e3 <+41>:    lea    -0xc(%rbp),%rdx
+   0x00000000000011e7 <+45>:    lea    -0x10(%rbp),%rax
+   0x00000000000011eb <+49>:    mov    %rdx,%rsi
+   0x00000000000011ee <+52>:    mov    %rax,%rdi
+   0x00000000000011f1 <+55>:    callq  0x1189 <swap(int&, int&)>
+   0x00000000000011f6 <+60>:    mov    $0x0,%eax
+   0x00000000000011fb <+65>:    mov    -0x8(%rbp),%rcx
+   0x00000000000011ff <+69>:    xor    %fs:0x28,%rcx
+   0x0000000000001208 <+78>:    je     0x120f <main()+85>
+   0x000000000000120a <+80>:    callq  0x1080 <__stack_chk_fail@plt>
+   0x000000000000120f <+85>:    leaveq
+   0x0000000000001210 <+86>:    retq
+End of assembler dump.
+
+Dump of assembler code for function swap(int&, int&):
+   0x0000000000001189 <+0>:     endbr64
+   0x000000000000118d <+4>:     push   %rbp
+   0x000000000000118e <+5>:     mov    %rsp,%rbp
+   0x0000000000001191 <+8>:     mov    %rdi,-0x18(%rbp)
+   0x0000000000001195 <+12>:    mov    %rsi,-0x20(%rbp)
+   0x0000000000001199 <+16>:    mov    -0x18(%rbp),%rax
+   0x000000000000119d <+20>:    mov    (%rax),%eax
+   0x000000000000119f <+22>:    mov    %eax,-0x4(%rbp)
+   0x00000000000011a2 <+25>:    mov    -0x20(%rbp),%rax
+   0x00000000000011a6 <+29>:    mov    (%rax),%edx
+   0x00000000000011a8 <+31>:    mov    -0x18(%rbp),%rax
+   0x00000000000011ac <+35>:    mov    %edx,(%rax)
+   0x00000000000011ae <+37>:    mov    -0x20(%rbp),%rax
+   0x00000000000011b2 <+41>:    mov    -0x4(%rbp),%edx
+   0x00000000000011b5 <+44>:    mov    %edx,(%rax)
+   0x00000000000011b7 <+46>:    nop
+   0x00000000000011b8 <+47>:    pop    %rbp
+   0x00000000000011b9 <+48>:    retq
+End of assembler dump.
